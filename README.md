@@ -2,114 +2,13 @@
  
 ---
 
-> ⚠️ **Project Status: Work in Progress (WIP) & Refactoring**
-> 
-> Welcome! This repository contains the code developed for my Master's Thesis, which is currently undergoing a major expansion.
-> 
-> To keep the development organized, this repository is split into two main branches:
-> * **[`thesis-version` branch](https://github.com/enricodidoli-source/master-thesis/tree/thesis-version)**: Contains the exact, finalized code presented for my graduation.
-> * **`main` branch (Current)**: Contains the experimental work. Please note that the code and Jupyter notebooks here might be unstructured (e.g., containing testing cells, logs, and isolated functions) as I am actively experimenting and refactoring. A full code cleanup and standardization will follow this exploratory phase.
->
-> **[Click here to see all code differences between the Thesis version and the Current version](https://github.com/enricodidoli-source/master-thesis/compare/thesis-version...main)**.
----
+> ⚠️ **This Archived Repository moved to [BinCellCNN repository](https://github.com/enricodidoli-source/BinCellCNN) on November 4-th.**⚠️
 
-## What's New (Post-Thesis Updates)
+> ⚠️ If you landed here using an old link, **PLEASE check the [BinCellCNN repository](https://github.com/enricodidoli-source/BinCellCNN)** to see the full updated code and results. ⚠️
 
-- **Single-Cell Modules**: Dedicated modules for single-cell classification analysis, available in [`CellCNN/modules/src/cell_level/`](./CellCNN/modules/src/cell_level/).
-- **Analysis Pipeline**: Added an end-to-end notebook for single-cell evaluation and filtering: [`refactoring_single_cell_detection.ipynb`](./CellCNN/notebooks/refactoring_single_cell_detection.ipynb).
-- **Method Selection**: Evaluated filter aggregation strategies (`single`, `mean`, `logistic`, `top3`) across thresholds with Leave-One-Patient-Out Cross-Validation (LOPOCV). 
-
-### Key Findings (Preview)
-- **Aggregated vs. Single Filter**: Aggregation methods significantly reduce performance volatility compared to raw individual filters.
-- **Top Performer**: The `logistic` aggregation strategy (threshold `0.4`) demonstrated the strongest balance between F1-Score mean and statistical stability (highest 95% Confidence Interval lower bound).
-- **Full Report**: Comprehensive metrics, statistical validation, and comparative plots will be made available shortly in a dedicated technical report.
----
-
-## Next Steps
-- **Filter Response Characterization**: Profiling and biological interpretation of activated CNN filters.
-- **Code Refactoring & Profiling**: Memory and runtime optimization of the thesis baseline.
-- **Production Pipeline**: End-to-end inference and decision pipeline.
+> ⚠️ You can also check any news about any concluded or Work in Progress (WIP) projects on in my **[Personal WebPage](https://enricodidoli-source.github.io/)**.
 
 ---
-## Overview
- 
-This repository contains the code developed for my Master's thesis on **Measurable Residual Disease (MRD) detection** in B-cell Acute Lymphoblastic Leukaemia (B-ALL) using the **CellCNN** neural network architecture applied to multiparameter flow cytometry (MFC) data.
- 
----
- 
-## Repository Structure
- 
-```
-master-thesis/
-│
-├── CellCNN/
-│   ├── CellCNN_modules/  # Python modules (.py) for CellCNN model (modified from the original implementation: https://github.com/eiriniar/CellCnn)
-│   ├── modules/          # Python modules (.py) for data processing, training and evaluation
-│   └── notebooks/        # Jupyter notebooks for experiments and results
-│
-├── requirements.txt
-└── README.md
-```
 
----
- 
-## Getting Started
- 
-### 1. Clone the repository
- 
-```bash
-git clone https://github.com/enricodidoli-source/master-thesis.git
-cd master-thesis
-```
- 
-### 2. Install dependencies
- 
-```bash
-pip install -r requirements.txt
-```
- 
-### 3. Run the notebooks
- 
-Open the Jupyter notebooks in the `CellCNN/notebooks/` folder to reproduce the experiments. The correct execution order is:
- 
-1. **Tuning:** `CellCNN/notebooks/training_classification/Bayesian_NO_AS_LOPOCV`
-2. **Training / Testing:** `CellCNN/notebooks/training_classification/` (any notebook, e.g. `Bayesian_NO_AS_LOPOCV`)
-3. **Results and plots:** `CellCNN/notebooks/results_elaboration_and_plotting/`, in this order:
-   - `0. Show_patient_info`
-   - `1. Show_BO_and_tuned_thresholds`
-   - `2. Show_Single_Split` / `Show_Ensemble`
-   - `3. Show_experiments_comparison` (requires both Single Split / Ensemble and both AS / NO-AS cases to have been run)
- 
-> **Note:** The data loading function is data-specific and must be adapted depending on the dataset you are using.
- 
-> **Note:** Experiments were run on Google Colab using a CPU-based runtime due to budget constraints. Switching to a GPU runtime is possible and recommended to reduce computation time.
- 
----
- 
-## Dependencies
- 
-| Library | Version |
-|---|---|
-| TensorFlow | 2.19.0 |
-| Scikit-learn | 1.6.1 |
-| NumPy | 2.0.2 |
-| Pandas | 2.2.2 |
-| Optuna | 4.8.0 |
-| FlowIO | 1.4.0 |
-| Matplotlib | 3.10.0 |
-| Seaborn | 0.13.2 |
-| SciPy | 1.16.3 |
- 
-Install all dependencies with:
- 
-```bash
-pip install -r requirements.txt
-```
- 
----
-
-📁 **Experiments, results and plots** are available on Google Drive: https://drive.google.com/drive/folders/1JshP_PXYHC2fsba1stgj6rr7_iF3zJu2?usp=sharing  
-
----
 
 
